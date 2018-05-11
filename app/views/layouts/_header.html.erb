@@ -1,0 +1,26 @@
+<nav class="colorlib-nav" role="navigation">
+	<div class="top-menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div id="colorlib-logo"><a href="index.html">Eskwela</a></div>
+				</div>
+				<div class="col-md-10 text-right menu-1">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="has-dropdown active">
+							<%= link_to "Course",  courses_path %>
+						</li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="event.html">Events</a></li>
+						<li><a href="news.html">News</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li class="btn-cta"><a href="#"><span>Free Trial</span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<%= render "layouts/slide" %>
