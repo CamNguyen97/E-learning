@@ -1,0 +1,42 @@
+<div class="colorlib-classes">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+				<h2>Our Classes</h2>
+				<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
+			</div>
+		</div>
+		<%= search_form_for @search, url: usercourses_path do |f|%>
+  			<%= select_tag :limit, options_from_collection_for_select(Settings.show_limit, :second, :second, selected: params[:limit] || Settings.show_limit.limit),id: "show-limit"%>
+  			<%= f.submit "search", class: "btn btn-info", style: "display: none; margin-right: 10px"%>
+		<% end %>
+		<div class="row">
+		<% @course.each do |item| %>
+				<div class="col-md-4 animate-box">
+					<div class="classes">
+						<div class="classes-img" style="background-image: url(images/classes-1.jpg);">
+						<% if CategoriesCourse.find_by(course_id: item.id).status != true %>
+							<span class="price text-center"><small>New</small></span>
+						<% end %>
+							
+						</div>
+						<div class="desc">
+							<h3><%= link_to item.name %></h3>
+						</div>
+					</div>
+				</div>
+		<% end %>
+		<%= paginate @course, theme: 'twitter-bootstrap-3' %>
+		</div>
+	</div>	
+</div>
+<script type="text/javascript">
+	$(function(){
+  $("#show-limit").on("change", function(){
+    $(this).closest("form").trigger("submit");
+  });
+})
+</script>
+
+
+

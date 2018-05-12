@@ -8,8 +8,8 @@
 				<div class="col-md-10 text-right menu-1">
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li class="has-dropdown active">
-							<%= link_to "Course",  courses_path %>
+						<li class="has-dropdown">
+							<%= link_to "Course", usercourses_path, method: :get %>
 						</li>
 						<li><a href="about.html">About</a></li>
 						<li><a href="event.html">Events</a></li>
@@ -22,5 +22,6 @@
 		</div>
 	</div>
 </nav>
-
-<%= render "layouts/slide" %>
+<% if user_signed_in? %>
+	<%= render "layouts/slide" %>
+<% end %>

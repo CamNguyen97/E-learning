@@ -17,6 +17,13 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "rails_admin"
+gem 'kaminari'      
+gem 'ransack'    
+gem 'bootstrap-kaminari-views' 
+gem 'ransack'
+gem 'config'
+gem "awesome_print", require:"ap"
+
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

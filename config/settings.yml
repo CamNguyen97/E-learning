@@ -1,0 +1,7 @@
+show_limit:
+  show_5: 6
+  show_10: 9
+  show_15: 12
+  show_20: 15
+  show_30: 18
+  show_50: 21
