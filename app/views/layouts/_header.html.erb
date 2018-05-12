@@ -3,24 +3,48 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2">
-					<div id="colorlib-logo"><a href="index.html">Eskwela</a></div>
+					<div id="colorlib-logo">
+						<%= link_to "E-learning", root_path, method: :get %>
+					</div>
 				</div>
 				<div class="col-md-10 text-right menu-1">
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li class="has-dropdown active">
-							<%= link_to "Course",  courses_path %>
+						<li>
+							<%= link_to "Home", root_path, method: :get %>
+						<li>
+							<%= link_to "Courses", usercourses_path, method: :get %>
 						</li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="event.html">Events</a></li>
-						<li><a href="news.html">News</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li class="btn-cta"><a href="#"><span>Free Trial</span></a></li>
+						<li>
+							<%= link_to "Words list", "#", method: :get %>
+						</li>
+						<li>
+							<%= link_to "Users", pages_path, method: :get %>
+						</li>
+						<li class="has-dropdown">
+							<a href="courses.html">Setting</a>
+							<ul class="dropdown">
+							<% if(!current_user.nil?) %>
+								<% if current_user.role != "user" %>
+									<li>
+										<%= link_to "Admin", rails_admin_path %>
+									</li>
+								<% end %>
+							<% end %>
+							<% if(!current_user.nil?) %>
+									<li>
+										<%= link_to "Profiles", profiles_path, method: :get %>
+									</li>
+							<% end %>
+								<% if user_signed_in? %>
+           							<li><%= link_to t("logout"), "", :method => "delete" %></li>
+          						<% else %>
+           							<li><%= link_to t("login"), "" %></li>
+         				 		<% end %>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 </nav>
-
-<%= render "layouts/slide" %>

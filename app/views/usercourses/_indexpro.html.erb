@@ -1,0 +1,14 @@
+<% @courses.each do |item| %>
+	<div class="col-md-4 animate-box">
+		<div class="classes">
+			<div class="classes-img" style="background-image: url(<%= item.image %>);">
+			<% if CategoriesCourse.find_by(course_id: item.id).status != true %>
+				<span class="price text-center"><small>New</small></span>
+			<% end %>
+			</div>
+			<div class="desc">
+				<h3><%= link_to item.name %></h3>
+			</div>
+		</div>
+	</div>
+<% end %>

@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
 	validates :name, presence: true, uniqueness: true
-	validates :question_id, presence: true, uniqueness: true
+	validates :question_id, presence: true
 
 	belongs_to :question
 	rails_admin do

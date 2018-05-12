@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.1]
       t.string :name
       t.datetime :dateDay
       t.boolean :is_delete, default:false
-
+      t.string :image
       t.timestamps
      
     end

@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180510170533) do
     t.string "name"
     t.datetime "dateDay"
     t.boolean "is_delete", default: false
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

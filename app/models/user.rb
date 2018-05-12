@@ -6,6 +6,7 @@ class User < ApplicationRecord
    enum role: {user: false, admin: true}, _suffix: true
    enum sex: {male: false, female: true}, _suffix: true
    has_many :categoriesCourses
+   	has_many :courses, through: :categoriesCourses
    validates :email, presence: true, uniqueness: true
 
 	# def after_sign_in_path_for(resource)

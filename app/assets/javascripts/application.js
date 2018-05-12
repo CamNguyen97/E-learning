@@ -9,11 +9,13 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
-//= require jquery
+//= require user
+//= require init
+//= require ckeditor/init
+//= require main
 //= require bootstrap
 //= require modernizr-2.6.2.min
 //= require jquery.waypoints.min
@@ -22,4 +24,7 @@
 //= require jquery.magnific-popup.min
 //= require magnific-popup-options
 //= require jquery.countTo
-//= require main
+
+
+
+
