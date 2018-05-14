@@ -14,7 +14,7 @@
           <% else %>
             <%= content_tag :span, 'Unchecked', class:"label label-danger" %> 
           <% end %>
-          </td>
+        </td>
         <td style="text-align: center;"><%= item.questions.count %></td>
         <td style="text-align: center;">
           <% if category_status(item.id).status == true %>
@@ -22,7 +22,7 @@
           <% else %>
               -
           <% end %>
-          </td>
+        </td>
         <td style="text-align: center;">
           <% if category_status(item.id).status == true %>
             <%= link_to "View",  edit_page_path(item.id), class:"btn btn-primary button btn-sm" %>

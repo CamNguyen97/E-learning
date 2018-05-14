@@ -7,8 +7,12 @@ class Course < ApplicationRecord
 	has_many :users, through: :categoriesCourses
 	# has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 	scope :list_course, ->(u_id) {
-	includes(:categoriesCourses)
-	.where(id: (CategoriesCourse.all.where(user_id: u_id)
+	includes(:categoriesCourses).where(id: (CategoriesCourse.all.where(user_id: u_id)
+		.select(:course_id))).order(name: :asc)
+	.group("courses.id").all
+  }
+  scope :list_course_learnd, ->(u_id) {
+	includes(:categoriesCourses).where(id: (CategoriesCourse.all.where(user_id: u_id, status: true)
 		.select(:course_id))).order(name: :asc)
 	.group("courses.id").all
   }

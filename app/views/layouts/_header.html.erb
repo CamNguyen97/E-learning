@@ -21,7 +21,7 @@
 							<%= link_to "Users", pages_path, method: :get %>
 						</li>
 						<li class="has-dropdown">
-							<a href="courses.html">Setting</a>
+							<a href="courses.html"><%= current_user.email %></a>
 							<ul class="dropdown">
 							<% if(!current_user.nil?) %>
 								<% if current_user.role != "user" %>
