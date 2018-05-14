@@ -8,7 +8,6 @@ end
 gem "bootstrap", "~> 4.1.1"
 gem "cancan"
 gem "rails", "~> 5.1.6"
-gem "sqlite3"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -32,7 +31,13 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem 'sqlite3', "1.3.13"
 end
+
+group :production do
+  gem 'pg'
+end
+
 
 group :development do
   gem "web-console", ">= 3.3.0"
