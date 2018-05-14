@@ -1,0 +1,28 @@
+<ol>
+  <% @answers.each do |wordlist| %>
+    <li style="margin: 10px;">
+      <strong><%= wordlist.name %></strong>
+      <br>
+      <% Answer.where(question_id: wordlist.id).each do |anw| %>
+        <% if anw.choose_status == true %>
+          <%= radio_button_tag "radio", anw.id, true %>
+        <% else %>
+          <%= radio_button_tag "radio", anw.id, false %>
+        <% end %>
+        <%= label_tag "result",anw.name,class: 'small_label' %>
+        <br>
+        <% if anw.correct_status == true %>
+          <% @flag = anw.id %>
+        <% end %>
+        <% if anw.choose_status == true %>
+          <% @choose = anw.id %>
+        <% end %>
+      <% end %>
+      <% if @flag == @choose %>
+        <p class="label label-primary">Correct answer</p>
+      <% else %>
+        <p class="label label-danger">Wrong answer</p>
+      <% end %>
+    </li>
+  <% end %>
+</ol>

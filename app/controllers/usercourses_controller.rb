@@ -1,7 +1,5 @@
 class UsercoursesController < ApplicationController
   def index
-  	@search = Course.list_course(current_user.id).search params[:q]
-  	@courses = @search.result.page(params[:page]).per params[:limit]
-  	byebug
+  	@courses = Course.list_course(current_user.id).page(params[:page] || 1).per 6
   end
 end

@@ -1,0 +1,64 @@
+<div class="colorlib-classes">
+	<div class="container">
+	<div class="row">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		<h4 >User Profile</h4>
+		<%= link_to "Update Profile", edit_profile_path(@user.id), class: "btn btn-primary" %>
+		</div>
+			<div class="panel-body">
+				<div class="box box-info">
+		            <div class="box-body">
+		                <div class="col-sm-6">
+		                    <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+		                    </div>
+		             		 <br>
+		            	</div>
+			            <div class="col-sm-6">
+			           		      
+			            </div>
+			            <div class="clearfix"></div>
+
+			            <hr style="margin:5px 0 5px 0;">
+						<div class="col-sm-5 col-xs-6 tital">Email:</div>
+						<div class="col-sm-7 col-xs-6 "><%= @user.email %></div>
+			    		<div class="clearfix"></div>
+
+						<div class="bot-border"></div>
+						<div class="col-sm-5 col-xs-6 tital">Name:</div>
+						<div class="col-sm-7"> <%= @user.name %></div>
+						<div class="clearfix"></div>
+
+						<div class="bot-border"></div>
+						<div class="col-sm-5 col-xs-6 tital">Sex:</div>
+						<div class="col-sm-7"><%= @user.sex==true ? "Male" : "Female" %></div>
+						<div class="clearfix"></div>
+
+						<div class="bot-border"></div>
+						<div class="col-sm-5 col-xs-6 tital">Date Of Birth:</div>
+						<div class="col-sm-7"><%= @user.dateOfbirth.to_date %></div>
+						<div class="clearfix"></div>
+
+						<div class="bot-border"></div>
+						<div class="col-sm-5 col-xs-6 tital">Phone:</div>
+						<div class="col-sm-7"><%= @user.phone %></div>
+						<div class="clearfix"></div>
+
+						<div class="bot-border"></div>
+						<div class="col-sm-5 col-xs-6 tital">Address:</div>
+						<div class="col-sm-7"><%= @user.address %></div>
+						<div class="clearfix"></div>
+
+						<div class="bot-border"></div>
+						<div class="col-sm-5 col-xs-6 tital">Role:</div>
+						<div class="col-sm-7"><%= @user.role %>
+						</div>
+						<div class="clearfix"></div>
+
+		         	</div>
+	       		</div>
+	    	</div> 
+	    </div>
+	</div>  
+</div>	
