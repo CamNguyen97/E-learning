@@ -23,7 +23,10 @@ gem 'bootstrap-kaminari-views'
 gem 'ransack'
 gem 'config'
 gem "awesome_print", require:"ap"
-
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'responsive_images'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

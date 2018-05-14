@@ -3,7 +3,7 @@ class Wordlist < ApplicationRecord
 	has_many :questions
 	validates :name, presence: true, uniqueness: true
 	validates :from_translator, presence: true, uniqueness: true
-	validates :course_id, presence: true, uniqueness: true
+	validates :course_id, presence: true
 
 	rails_admin do
 		label "List Word"
@@ -15,6 +15,12 @@ class Wordlist < ApplicationRecord
 
 	       field :from_translator do
 	        label "Translate"
+	      end
+	      field :course_id do
+	        label "Course"
+	        formatted_value do 
+		      Course.find_by(id: value).name
+		    end
 	      end
 	    end
 
