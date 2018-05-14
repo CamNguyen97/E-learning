@@ -3,7 +3,7 @@
     <li style="margin: 10px;">
       <strong><%= wordlist.name %></strong>
       <br>
-      <% Answer.where(question_id: wordlist.id).each do |anw| %>
+      <% list_answer_wid(wordlist.id).each do |anw| %>
         <% if anw.choose_status == true %>
           <%= radio_button_tag "radio", anw.id, true %>
         <% else %>
