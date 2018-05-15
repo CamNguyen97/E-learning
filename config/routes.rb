@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+   devise_for :users, controllers: { 
+    omniauth_callbacks: 'users/omniauth_callbacks' 
+  }
    concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
@@ -10,9 +12,8 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/dashboard' => 'users#dashboard'
-  devise_scope :user do
+  devise_scope :users do
     get "login" => "devise/sessions#new"
   end
-  devise_for :users
-  # mount Ckeditor::Engine =>"/ckeditor"
+  
 end
