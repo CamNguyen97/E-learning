@@ -11,15 +11,15 @@
 					<ul>
 						<li>
 							<%= link_to "Home", root_path, method: :get %>
-						<li>
-							<%= link_to "Courses", usercourses_path, method: :get %>
 						</li>
-						<li>
-							<%= link_to "Words list", "#", method: :get %>
+						<% if(!current_user.nil?) %>
+							<li>
+							<%= link_to "Words list", wordlists_path, method: :get %>
 						</li>
 						<li>
 							<%= link_to "Users", pages_path, method: :get %>
 						</li>
+						<% end %>
 						<li class="has-dropdown">
 						<% if(!current_user.nil?) %>
 							<a href="courses.html"><%= current_user.email %></a>
@@ -29,8 +29,6 @@
 										<%= link_to "Admin", rails_admin_path %>
 									</li>
 								<% end %>
-							<% end %>
-							<% if(!current_user.nil?) %>
 									<li>
 										<%= link_to "Profiles", profiles_path, method: :get %>
 									</li>

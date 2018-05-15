@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :usercourses, concerns: :paginatable
   resources :profiles
   resources :pages
+  resources :wordlists
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/dashboard' => 'users#dashboard'

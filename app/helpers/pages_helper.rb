@@ -18,13 +18,13 @@ module PagesHelper
 		answers = Answer.where(question_id: wordlist_id)
 	end
 
-	def count_wordlist_learn
+	def wordlist_learn
 		course_learn = Course.list_course_learnd(current_user.id).select("id")
-		count_word_list = Wordlist.where(course_id: course_learn).count
+		count_word_list = Wordlist.where(course_id: course_learn)
 	end
 
-	def count_wordlist
+	def wordlist
 		course_learn = Course.list_course(current_user.id).select("id")
-		count_word_list = Wordlist.where(course_id: course_learn).count
+		count_word_list = Wordlist.where(course_id: course_learn)
 	end
 end
