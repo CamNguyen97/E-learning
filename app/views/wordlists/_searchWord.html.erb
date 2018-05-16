@@ -1,0 +1,8 @@
+<%= search_form_for @q do |f| %>
+ <div class="form-group">
+  <%= f.label :name, "Search word"%>
+  <%= f.search_field :name , {class:"form-control input-sm", style:"width:15%;",placeholder:"Search word"}  %>
+  </div>
+
+  <%= f.submit "Search" ,{class:"btn btn-default btn-sm"} %>
+<% end %>

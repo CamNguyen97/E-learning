@@ -27,4 +27,9 @@ module PagesHelper
 		course_learn = Course.list_course(current_user.id).select("id")
 		count_word_list = Wordlist.where(course_id: course_learn)
 	end
+
+	def new_word
+		course_learn = Course.list_course_learnd(current_user.id).select("id")
+		count_word_list = Wordlist.where.not(course_id: course_learn)
+	end
 end
