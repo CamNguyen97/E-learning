@@ -9,7 +9,7 @@
       <tr>
         <td><%= item.name %></td>
         <td style="text-align: center;">
-          <% if category_status(item.id).status == true %>
+          <% if category_status(item.id, current_user.id).status == true %>
             <%= content_tag :span, 'Checked', class:"label label-primary" %> 
           <% else %>
             <%= content_tag :span, 'Unchecked', class:"label label-danger" %> 
@@ -17,15 +17,15 @@
         </td>
         <td style="text-align: center;"><%= item.questions.count %></td>
         <td style="text-align: center;">
-          <% if category_status(item.id).status == true %>
+          <% if category_status(item.id, current_user).status == true %>
             <%= count_result item.questions.ids  %>/<%= item.questions.count %>
           <% else %>
               -
           <% end %>
         </td>
         <td style="text-align: center;">
-          <% if category_status(item.id).status == true %>
-            <%= link_to "View",  edit_page_path(item.id), class:"btn btn-primary button btn-sm" %>
+          <% if category_status(item.id, current_user).status == true %>
+            <%= link_to "View",  page_path(item.id), class:"btn btn-primary button btn-sm" %>
           <% else %>
             <%= link_to "Learned",  new_page_path(item.id), class:"btn btn-success button btn-sm" %>
           <% end %>

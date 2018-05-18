@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get "/wordlists/learn", to: "wordlists#showLearn"
   resources :usercourses, concerns: :paginatable
   resources :profiles
-  resources :pages
+  resources :pages do 
+    get "/page/create", action: "save_answer"
+  end
   resources :wordlists do
   end
 
@@ -18,6 +20,14 @@ Rails.application.routes.draw do
   get '/dashboard' => 'users#dashboard'
   devise_scope :users do
     get "login" => "devise/sessions#new"
+    # member do
+    #   get :following, :followers
+    # end
   end
-  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+   resources :relationships, only: [:create, :destroy]
 end

@@ -23,7 +23,3 @@
 //= require jquery.magnific-popup.min
 //= require magnific-popup-options
 //= require jquery.countTo
-
-
-
-

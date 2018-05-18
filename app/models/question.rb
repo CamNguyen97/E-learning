@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
 	belongs_to :wordlist
 	has_many :answers
+	has_many :results
 	validates :name, presence: true, uniqueness: true
 	validates :wordlist_id, presence: true
 

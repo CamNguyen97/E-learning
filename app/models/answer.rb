@@ -1,6 +1,7 @@
 class Answer < ApplicationRecord
 	validates :name, presence: true, uniqueness: true
 	validates :question_id, presence: true
+	has_many :results
 
 	belongs_to :question
 	rails_admin do
@@ -16,10 +17,6 @@ class Answer < ApplicationRecord
 	        formatted_value do 
 	          Question.find_by(id: value).name
 	        end
-	      end
-
-	      field :choose_status do
-	        label "User choose"
 	      end
 
 	      field :correct_status do

@@ -1,0 +1,15 @@
+<ol>
+  <% @answers.each do |wordlist| %>
+    <li style="margin: 10px;">
+    <input type="hidden" name="" value="Norway" class="data_anw_<%= wordlist.id %>">
+      <strong data-id="<%= wordlist.id %>", class="question"><%= wordlist.name %></strong>
+      <br>
+      <% Answer.where(question_id: wordlist.id).each do |anw| %>
+        <%= radio_button_tag wordlist.id, anw.id, false, class:"check_anw", data_anw:anw.id, data_question: wordlist.id, data_user: @user_id, status: true %>
+        <%= label_tag "result",anw.name ,class: 'small_label' %>
+        <br>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+<%= link_to "Save", page_path(id: params[:format] ), class: "btn btn-primary btn-submit btn-sm", remote: true %>
