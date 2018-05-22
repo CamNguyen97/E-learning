@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518063848) do
+ActiveRecord::Schema.define(version: 20180517085100) do
 
   create_table "answers", force: :cascade do |t|
     t.string "name"
@@ -47,13 +47,6 @@ ActiveRecord::Schema.define(version: 20180518063848) do
     t.datetime "updated_at", null: false
     t.integer "wordlist_id"
     t.index ["wordlist_id"], name: "index_questions_on_wordlist_id"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade do |t|
