@@ -20,9 +20,6 @@ Rails.application.routes.draw do
   get '/dashboard' => 'users#dashboard'
   devise_scope :users do
     get "login" => "devise/sessions#new"
-    # member do
-    #   get :following, :followers
-    # end
   end
   resources :users do
     member do

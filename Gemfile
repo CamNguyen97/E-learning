@@ -19,24 +19,24 @@ gem "rails_admin"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem 'bootstrap-kaminari-views' 
-gem 'carrierwave'
-gem 'ckeditor'
-gem 'config'
-gem 'kaminari'      
-gem 'mini_magick'
-gem 'ransack'
-gem 'responsive_images'
+gem "bootstrap-kaminari-views" 
+gem "carrierwave"
+gem "ckeditor"
+gem "config"
+gem "kaminari"      
+gem "mini_magick"
+gem "ransack"
+gem "responsive_images"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
-  gem 'sqlite3', "1.3.13"
+  gem "sqlite3", "1.3.13"
 end
 
 group :production do
-  gem 'pg'
+  gem "pg"
 end
 
 

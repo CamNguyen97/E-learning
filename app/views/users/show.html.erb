@@ -1,17 +1,22 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <%= render 'follow_form' %>
-    
+<div class="container">
+  <div class="row">
+      <div class="row">
+      <aside class="col-md-4">
+        <section>
+          <h1>
+           <%= link_to current_user.name, profiles_path %>
+          </h1>
+        </section>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+       </section>
+      </aside>
+      <div class="col-md-8">
+        <%= render 'users/follow_form' %>
+        <ul class="microposts">
+          <%= render "users/user" %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
