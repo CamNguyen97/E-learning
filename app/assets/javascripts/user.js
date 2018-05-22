@@ -23,7 +23,7 @@ $(document).on("click", ".btn-submit", function () {
     type: 'get',
     // contentType: 'application/json',
     success: function(data) {
-    	// $('.body').html("<%= j (render 'resultEdit') %>");
+    	$('.body').html("<%= j (render 'resultEdit') %>");
    		// window.location.replace("<%= page_path(@r) %>");
    }
 });

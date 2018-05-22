@@ -36,12 +36,4 @@ class PagesController < ApplicationController
     @result = Result.where(question_id:Question.where( wordlist_id: Wordlist.where(course_id: pr_course_id)))
   end
 
-  def tag_list
-    @tag_list
-  end
-
-# setter
-  def tag_list=(val)
-    @tag_list = val
-  end
 end
