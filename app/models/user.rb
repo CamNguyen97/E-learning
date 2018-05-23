@@ -8,14 +8,6 @@ class User < ApplicationRecord
    has_many :categoriesCourses
    has_many :courses, through: :categoriesCourses
    has_many :results
-   has_many :active_relationships, class_name:  "Relationship",
-                                  foreign_key: "follower_id",
-                                  dependent:   :destroy
-    has_many :following, through: :active_relationships, source: :followed
-    has_many :passive_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent:   :destroy
-   	has_many :followers, through: :passive_relationships, source: :follower
     validates :email, presence: true, uniqueness: true
 
 	 devise :database_authenticatable, :registerable,
@@ -35,21 +27,21 @@ class User < ApplicationRecord
     end
   end
 
-  def self.from_omniauth(access_token) 
+  def self.from_omniauth(access_token)
   	byebug
-		data = access_token.info 
-		user = User.where(email: data['email']).first 
-		# Uncomment the section below if you want users to be created if they don't exist 
-		# unless user 
+		data = access_token.info
+		user = User.where(email: data['email']).first
+		# Uncomment the section below if you want users to be created if they don't exist
+		# unless user
 		# user = User.create(name: data['name'], # email: data['email'],
-		 # password: Devise.friendly_token[0,20] # ) 
-		# end 
-		user 
+		 # password: Devise.friendly_token[0,20] # )
+		# end
+		user
 	end
 
 	rails_admin do
 		list do
-		  
+
 		  field :name do
 		    label "Name"
 		  end
