@@ -37,9 +37,6 @@ group :development, :test do
   gem "sqlite3", "1.3.13"
 end
 
-group :production do
-  gem "pg"
-end
 
 
 group :development do
