@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "awesome_print", require:"ap"
+gem "mysql2", '>=0.3.13', '<0.5'
 gem "bootstrap", "~> 4.1.1"
 gem "cancan"
 gem "coffee-rails", "~> 4.2"
@@ -27,6 +28,7 @@ gem "kaminari"
 gem "mini_magick"
 gem "ransack"
 gem "responsive_images"
+gem "figaro"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
