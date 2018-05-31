@@ -27,7 +27,7 @@
           <% if category_status(item.id, current_user).status == true %>
             <%= link_to "View",  page_path(item.id), class:"btn btn-primary button btn-sm" %>
           <% else %>
-            <%= link_to "Learned",  new_page_path(item.id), class:"btn btn-success button btn-sm" %>
+            <%= link_to "Learn",  new_page_path(item.id), class:"btn btn-success button btn-sm" %>
           <% end %>
         </td>
       </tr>

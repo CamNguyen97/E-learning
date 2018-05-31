@@ -5,7 +5,7 @@
       <br>
       <% @flag = 0 %>
       <% list_answer_wid(wordlist.id).each do |anw| %>
-        <% if result(wordlist.id, current_user.id).answer_id == anw.id %>
+        <% if Result.find_by(question_id: wordlist.id, user_id: current_user.id).answer_id == anw.id %>
           <%= radio_button_tag wordlist.id, anw.id, true, disabled:true; %>
         <% else %>
           <%= radio_button_tag wordlist.id, anw.id, false, disabled:true; %>
@@ -13,8 +13,7 @@
         <%= label_tag "result",anw.name,class: 'small_label' %>
         <br>
 
-
-        <% if result(wordlist.id, current_user.id).choose_user == anw.correct_status && result(wordlist.id, current_user.id).answer_id == anw.id %>
+        <% if Result.find_by(question_id: wordlist.id, user_id: current_user.id).choose_user == anw.correct_status && Result.find_by(question_id: wordlist.id, user_id: current_user.id).answer_id == anw.id %>
           <% @flag += 1 %>
         <% end %>
       <% end %>
@@ -24,7 +23,5 @@
         <p class="label label-danger">Wrong answer</p>
       <% end %>
     </li>
-
-
   <% end %>
 </ol>

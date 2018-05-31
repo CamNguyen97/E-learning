@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+skip_before_action :verify_authenticity_token
 
   def home
   	@courses_list = Course.list_course(current_user.id)
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   end
 
   def save_answer
-    object = JSON.parse(params[:page_id])
+    object = JSON.parse(params[:result])
     @r = cookies.signed[:course]
     @course = wordlist
     if Result.create object
@@ -28,6 +28,9 @@ class PagesController < ApplicationController
     else
       render :new
     end
+
+    List_answer(params[:id])
+    render "show"
   end
 
   private

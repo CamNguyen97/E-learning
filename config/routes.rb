@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   resources :usercourses, concerns: :paginatable
   resources :profiles
   resources :pages do 
-    get "/page/create", action: "save_answer"
+    # get "/page/create", action: "save_answer"
+    member do
+      post "save_answer"
+    end
   end
-  resources :wordlists do
-  end
+  resources :wordlists 
+
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/dashboard' => 'users#dashboard'

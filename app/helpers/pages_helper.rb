@@ -5,9 +5,18 @@ module PagesHelper
 
 	def count_result question_ids
 		count = 0
-  	anwsers = Answer.joins(:results).where(question_id: 1).select("answers.correct_status, results.choose_user")
-  	anwsers.map{|answer| answer.choose_user == true && answer.correct_status == true ? count += 1 : count}
-  	return count
+	  	anwsers = Answer.where(question_id: question_ids).to_a
+	  	results = Result.where(question_id: question_ids, user_id: current_user.id).to_a
+  		anwsers.each do |valan, indexan|
+  			results.each do |valre, indexre|
+  				if valre.question_id == valan.question_id
+  					if (valre.answer_id == valan.id && valan.correct_status == true)
+  					 	count += 1
+  					end
+  				end
+  			end
+  		end
+	  return count
 	end
 
 	def name_course pr_cours_id
@@ -20,8 +29,6 @@ module PagesHelper
 
 	def result question_id, user_id
 		Result.find_by(question_id: question_id, user_id: user_id)
-		# a = result[answer_id]
-		# byebug
 	end
 
 	def wordlist_learn
